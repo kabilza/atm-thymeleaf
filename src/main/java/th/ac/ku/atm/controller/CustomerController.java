@@ -24,14 +24,14 @@ public class CustomerController {
 
     @GetMapping("/customer")
     public String getCustomerPage(Model model) {
-        model.addAttribute("allCustomers", customers);
+        model.addAttribute("allCustomers", customerService.getCustomers());
         return "customer";
     }
 
     @PostMapping("/customer")
     public String registerCustomer(@ModelAttribute Customer customer, Model model) {
-        customers.add(customer);
-        model.addAttribute("allCustomers", customers);
+        customerService.createCustomer(customer);
+        model.addAttribute("allCustomers", customerService.getCustomers());
         return "redirect:customer";
     }
 

@@ -1,5 +1,6 @@
 package th.ac.ku.atm;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -17,6 +18,8 @@ public class CustomerService {
     }
 
     public void createCustomer(Customer customer) {
+        String hashPin = hash(customer.getPin());
+        customer.setPin(hashPin);
         customerList.add(customer);
     }
 
@@ -25,4 +28,10 @@ public class CustomerService {
 
         //return new list to prevent the re-order of the data.
     }
+
+    private String hash(String pin) {
+        String salt = BCrypt.gensalt(12);
+        return BCrypt.hashpw(pin, salt);
+    }
+
 }
