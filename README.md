@@ -1,2 +1,2 @@
-# atm-thymeleaf
+# atm-web
 Practice for Software Process and Management
