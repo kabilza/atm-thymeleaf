@@ -10,16 +10,6 @@ public class BankAccount {
     private String type;
     private double balance;
 
-
-    //  ..Generate.. Getters, Setters, toString()
-
-    public BankAccount(int id, int customerId, String type){
-        this.id = id;
-        this.customerId = customerId;
-        this.type = type;
-        this.balance = 0.00;
-    }
-
     public int getId(){
         return id;
     }
@@ -50,6 +40,15 @@ public class BankAccount {
 
     public void setBalance(double balance){
         this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "id=" + id +
+                ", customerId='" + customerId + '\'' +
+                ", type='" + type + '\'' + ", balance='" + balance +
+                '}';
     }
 
 }
