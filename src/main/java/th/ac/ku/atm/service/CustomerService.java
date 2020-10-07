@@ -1,8 +1,9 @@
-package th.ac.ku.atm;
+package th.ac.ku.atm.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
+import th.ac.ku.atm.Customer;
 import th.ac.ku.atm.data.CustomerRepository;
 
 import javax.annotation.PostConstruct;
